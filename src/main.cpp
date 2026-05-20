@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unistd.h>
+#include "../include/parser.h"
 using namespace std;
 
 int main() {
@@ -10,6 +11,8 @@ int main() {
         if (cmd == "exit") {
             return 0;
         }
-        system(cmd.c_str());
+        if (cmd.empty()) continue;
+        vector<std::string> cmd_parsed = parser::parse(cmd);
+        
     }
 }
