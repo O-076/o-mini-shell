@@ -13,6 +13,7 @@ int main() {
         getline(cin,cmd);
         if (cmd.empty()) continue;
         vector<std::string> cmd_parsed = parser::parse(cmd);
+        if (cmd_parsed.empty()) continue;
         if (builtins::is_builtin(cmd_parsed[0])) builtins::handle(cmd_parsed);
         else executer::execute(cmd_parsed);
     }
