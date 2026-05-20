@@ -18,12 +18,12 @@ void builtins::handle(std::vector<std::string> argv) {
     if (argv.empty()) return;
     if (argv[0] == "exit") {
         exit(0);
-        return;
     }
-    else if (argv[0] == "cd" && argv.size() > 1) {
+    else if (argv[0] == "cd" && argv.size() == 2) {
         if(chdir(argv[1].c_str()) == -1 ) std::cerr << "Invalid directory.\n";
     }
     else if (argv[0] == "cd") {
-        std::cerr << "Please enter a valid directory\n";
+        if (argv.size() > 2) std::cerr << "Too many arguments.\n";
+        else std::cerr << "Missing arguments. Please enter a directory.\n";
     }
 }

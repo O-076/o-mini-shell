@@ -16,7 +16,7 @@ void executer::execute(std::vector<std::string> cmd_parsed) {
     
     if (pid==0) {
         execvp(argv[0], argv);
-        std::cerr << "Invalid arguement.\n";
+        std::cerr << "Invalid argument.\n";
         _exit(-1);
     }
 
