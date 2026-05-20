@@ -1,6 +1,6 @@
 #include <iostream>
-#include <unistd.h>
 #include "../include/parser.h"
+#include "../include/executer.h"
 using namespace std;
 
 int main() {
@@ -13,6 +13,6 @@ int main() {
         }
         if (cmd.empty()) continue;
         vector<std::string> cmd_parsed = parser::parse(cmd);
-        
+        executer::execute(cmd_parsed);
     }
 }
