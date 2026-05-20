@@ -4,6 +4,7 @@
 #include <iostream>
 
 void executer::execute(std::vector<std::string> cmd_parsed) {
+    if (cmd_parsed.empty()) return;
     char** argv = new char*[cmd_parsed.size() + 1];
     
     for (int i = 0; i < cmd_parsed.size(); i++) {
