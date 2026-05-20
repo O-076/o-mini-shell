@@ -1,5 +1,7 @@
 #include "../include/executer.h"
 #include <unistd.h>
+#include <sys/wait.h>
+#include <iostream>
 
 void executer::execute(std::vector<std::string> cmd_parsed) {
     char** argv = new char*[cmd_parsed.size() + 1];
@@ -13,7 +15,12 @@ void executer::execute(std::vector<std::string> cmd_parsed) {
     
     if (pid==0) {
         execvp(argv[0], argv);
+        std::cerr << "Invalid arguement.\n";
+        _exit(-1);
     }
-    
-    else return;
+
+    else {
+        int status;
+        waitpid(pid, &status, 0);
+    }
 }
