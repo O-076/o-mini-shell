@@ -7,7 +7,7 @@ int main() {
     pid_t pid = fork();
     if (pid == 0) {
         cout << "This should appear.\n\n" << flush;
-        char* args [] = {"-l", NULL};
+        char* args [] = {"ls", "-l", NULL};
         execvp("ls", args);
         cout << "This shouldn't appear\n\n";
     }
